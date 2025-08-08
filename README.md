@@ -14,4 +14,4 @@
 
 - [Next.js Documentation](https://nextjs.org/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/)
-- [Zustand devtools ]([https://nextjs.org/](https://zustand.docs.pmnd.rs/middlewares/devtools))
+- [Zustand devtools ]([https://zustand.docs.pmnd.rs/middlewares/devtools])
