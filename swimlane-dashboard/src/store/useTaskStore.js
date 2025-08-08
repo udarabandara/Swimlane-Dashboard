@@ -1,8 +1,8 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 export const useTaskStore = create((set) => ({
   tasks: [],
-  searchQuery: '',
+  searchQuery: "",
   setTasks: (tasks) => set({ tasks }),
   updateTaskStatus: (taskId, newStatus) =>
     set((state) => ({
@@ -12,5 +12,3 @@ export const useTaskStore = create((set) => ({
     })),
   setSearchQuery: (query) => set({ searchQuery: query }),
 }));
-
-

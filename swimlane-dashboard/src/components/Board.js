@@ -26,15 +26,15 @@ function Task({ task }) {
   }));
 
   const categoryColors = {
-  'Feedback': 'bg-blue-500',
-  'Interface': 'bg-gray-900',
-  'UX Research': 'bg-orange-500',
-  'Presentation': 'bg-green-500',
-  'Research': 'bg-lime-300',
-  'Design': 'bg-red-500',
-};
+    Feedback: "bg-blue-500",
+    Interface: "bg-gray-900",
+    "UX Research": "bg-orange-500",
+    Presentation: "bg-green-500",
+    Research: "bg-lime-300",
+    Design: "bg-red-500",
+  };
 
-const colorClass = categoryColors[task.category] || 'bg-gray-400';
+  const colorClass = categoryColors[task.category] || "bg-gray-400";
 
   return (
     <div
@@ -43,13 +43,13 @@ const colorClass = categoryColors[task.category] || 'bg-gray-400';
         isDragging ? "opacity-50" : "opacity-100"
       }`}
     >
-       <span className="text-sm text-gray-300 flex items-center">
-    <span
-      className={`inline-block w-2 h-2 rounded-xs mr-2 ${colorClass}`}
-      aria-hidden="true"
-    ></span>
-    {task.category}
-  </span>
+      <span className="text-sm text-gray-300 flex items-center">
+        <span
+          className={`inline-block w-2 h-2 rounded-xs mr-2 ${colorClass}`}
+          aria-hidden="true"
+        ></span>
+        {task.category}
+      </span>
       {task.title}
 
       <div className="flex flex-row">
@@ -81,42 +81,44 @@ const colorClass = categoryColors[task.category] || 'bg-gray-400';
           </div>
         )}
 
-
-      <button className="bg-gray-50 px-1 text-gray-400 rounded-sm w-auto ml-2">
+        <button className="bg-gray-50 px-1 text-gray-400 rounded-sm w-auto ml-2">
           <span className="text-xs">⚡</span>
           <span className="text-xs text-gray-400">{task.priority}</span>
-      </button>
+        </button>
       </div>
 
-      { task.img &&  <img src={task.img }  width={150} height={12}/>}
+      {task.img && <img src={task.img} width={150} height={12} />}
 
       <hr className="border-t border-gray-200 mt-4 mb-4" />
       <div className="flex flex-row justify-between">
-
-         <div className="flex flex-row">
-            <img
+        <div className="flex flex-row">
+          <img
             className="text-gray-400"
             src="/link.svg"
             alt="layout-dashboard"
             width={12}
             height={12}
           />
-          <span className="text-xs text-gray-400 ml-2">{task.noOfEngagers}</span>
+          <span className="text-xs text-gray-400 ml-2">
+            {task.noOfEngagers}
+          </span>
         </div>
 
         <div className="flex flex-row">
-            <img
+          <img
             className="text-gray-400"
             src="/brand-line.svg"
             alt="layout-dashboard"
             width={12}
             height={12}
           />
-          <span className="text-xs text-gray-400 ml-2">{task.noOfComments}</span>
+          <span className="text-xs text-gray-400 ml-2">
+            {task.noOfComments}
+          </span>
         </div>
 
         <div className="flex flex-row">
-            <img
+          <img
             className="text-gray-400"
             src="/calendar-week.svg"
             alt="layout-dashboard"
@@ -124,12 +126,13 @@ const colorClass = categoryColors[task.category] || 'bg-gray-400';
             height={12}
           />
           <span className="text-xs text-gray-400 ml-2">
-  Due: {new Date(task.dueDate).toLocaleDateString('en-GB', {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric',
-  })}
-</span>
+            Due:{" "}
+            {new Date(task.dueDate).toLocaleDateString("en-GB", {
+              day: "2-digit",
+              month: "long",
+              year: "numeric",
+            })}
+          </span>
         </div>
       </div>
     </div>
