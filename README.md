@@ -1,5 +1,7 @@
  # Project Swimline Dashboard
 
+ <img width="1440" height="1024" alt="Dashboard" src="https://github.com/user-attachments/assets/2a559e99-ea31-42e9-a239-ece3d89d875d" />
+
 ## Developed by:
 **Name:** Udara Bandara
 
