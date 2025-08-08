@@ -1,4 +1,17 @@
+"use client";
+
+import React from 'react';
+import { useTaskStore } from '../store/useTaskStore';
+
 function Header() {
+
+  const searchQuery = useTaskStore((state) => state.searchQuery);
+  const setSearchQuery = useTaskStore((state) => state.setSearchQuery);
+
+  const handleChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
   return (
     <div>
       <header className="h-20 w-full flex items-center justify-between px-6 border-b border-gray-300 bg-white">
@@ -20,10 +33,10 @@ function Header() {
 
             <input
               type="text"
-              id="search"
+              value={searchQuery}
+              onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               placeholder="search"
-              required
             />
           </div>
 

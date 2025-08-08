@@ -3,6 +3,8 @@
 import Header from "../components/Header";
 import Nav from "../components/Nav";
 import TitleContent from "../components/TitleContent";
+import Board from "../components/Board";
+
 import { useState } from "react";
 
 export default function Home() {
@@ -36,8 +38,9 @@ export default function Home() {
             <button onClick={() => setSidebarOpen(true)}>☰</button>
           </div>
 
-          <main className="flex bg-white w-full">
+          <main className="flex flex-col bg-white w-full">
             <TitleContent />
+            <Board />
           </main>
         </div>
       </div>

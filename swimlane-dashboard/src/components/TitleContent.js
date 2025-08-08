@@ -9,10 +9,10 @@ function TitleContent() {
                 <span className="text-sm">In progress</span>
           </button>
       </div>
-      <span className="text-lg text-gray-400">event production</span>
+      <span className="text-m text-gray-400">event production</span>
 
       <div className="flex flex-row items-center mt-2">
-      <span className="text-lg text-gray-400">assigned</span>
+      <span className="text-m text-gray-400">assigned</span>
 
       <div className="flex -space-x-3 ml-5">
         <img className="dark:invert w-8 h-8 rounded-full border-2 border-white" src="/user.svg" alt="user"  />
