@@ -27,8 +27,8 @@ function Header() {
           <div className="flex flex-row">
             <div className="flex flex-row items-center gap-4 mr-5">
             <button className="px-6 py-2 bg-blue-500 text-white hover:bg-blue-300 transition rounded-md md:w-85 sm:w-auto">
-                <span className="sm:hidden text-xl">+</span>
-                <span className="hidden sm:inline">Create New Board +</span>
+                <span className="md:hidden text-xl">+</span>
+                <span className="hidden md:inline">Create New Board +</span>
                 </button>
 
             <input

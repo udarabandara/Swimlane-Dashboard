@@ -228,7 +228,7 @@ export default function Board() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="flex w-full min-h-100 bg-zinc-100 flex-col sm:flex-row">
+      <div className="flex w-full min-h-100 bg-zinc-100 flex-col md:flex-row">
         {statuses.map((status) => (
           <Column
             key={status.key}
