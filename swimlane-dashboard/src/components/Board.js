@@ -25,14 +25,113 @@ function Task({ task }) {
     }),
   }));
 
+  const categoryColors = {
+  'Feedback': 'bg-blue-500',
+  'Interface': 'bg-gray-900',
+  'UX Research': 'bg-orange-500',
+  'Presentation': 'bg-green-500',
+  'Research': 'bg-lime-300',
+  'Design': 'bg-red-500',
+};
+
+const colorClass = categoryColors[task.category] || 'bg-gray-400';
+
   return (
     <div
       ref={drag}
-      className={`p-3 mb-2 bg-white rounded shadow cursor-move ${
+      className={`flex flex-col p-3 mb-2 bg-white rounded shadow cursor-move ${
         isDragging ? "opacity-50" : "opacity-100"
       }`}
     >
+       <span className="text-sm text-gray-300 flex items-center">
+    <span
+      className={`inline-block w-2 h-2 rounded-xs mr-2 ${colorClass}`}
+      aria-hidden="true"
+    ></span>
+    {task.category}
+  </span>
       {task.title}
+
+      <div className="flex flex-row">
+        {task.noOfAssignees < 4 ? (
+          <div className="flex -space-x-2">
+            {Array.from({ length: task.noOfAssignees }).map((_, index) => (
+              <img
+                key={index}
+                className="dark:invert w-6 h-6 rounded-full border-2 border-white"
+                src="/user.svg"
+                alt="user"
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="flex -space-x-2">
+            {Array.from({ length: 3 }).map((_, index) => (
+              <img
+                key={index}
+                className="dark:invert w-6 h-6 rounded-full border-2 border-white"
+                src="/user.svg"
+                alt="user"
+              />
+            ))}
+
+            <div className="w-6 h-6 rounded-full bg-gray-200 text-gray-700 text-xs font-semibold flex items-center justify-center border-2 border-white">
+              +{task.noOfAssignees - 3}
+            </div>
+          </div>
+        )}
+
+
+      <button className="bg-gray-50 px-1 text-gray-400 rounded-sm w-auto ml-2">
+          <span className="text-xs">⚡</span>
+          <span className="text-xs text-gray-400">{task.priority}</span>
+      </button>
+      </div>
+
+      { task.img &&  <img src={task.img }  width={150} height={12}/>}
+
+      <hr className="border-t border-gray-200 mt-4 mb-4" />
+      <div className="flex flex-row justify-between">
+
+         <div className="flex flex-row">
+            <img
+            className="text-gray-400"
+            src="/link.svg"
+            alt="layout-dashboard"
+            width={12}
+            height={12}
+          />
+          <span className="text-xs text-gray-400 ml-2">{task.noOfEngagers}</span>
+        </div>
+
+        <div className="flex flex-row">
+            <img
+            className="text-gray-400"
+            src="/brand-line.svg"
+            alt="layout-dashboard"
+            width={12}
+            height={12}
+          />
+          <span className="text-xs text-gray-400 ml-2">{task.noOfComments}</span>
+        </div>
+
+        <div className="flex flex-row">
+            <img
+            className="text-gray-400"
+            src="/calendar-week.svg"
+            alt="layout-dashboard"
+            width={12}
+            height={12}
+          />
+          <span className="text-xs text-gray-400 ml-2">
+  Due: {new Date(task.dueDate).toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  })}
+</span>
+        </div>
+      </div>
     </div>
   );
 }
@@ -129,7 +228,7 @@ export default function Board() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="flex w-full min-h-100 bg-gray-120 flex-col sm:flex-row">
+      <div className="flex w-full min-h-100 bg-zinc-100 flex-col sm:flex-row">
         {statuses.map((status) => (
           <Column
             key={status.key}
